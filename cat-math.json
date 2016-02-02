@@ -1,6 +1,6 @@
 [
    {
-     "info":{  
+     "info":{
          "cid":94,
          "ct":"Limit, Continuity and Differentiability",
          "ctg":"jeemain,math,limit-continuity-and-differentiability",
@@ -8,7 +8,7 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":88,
          "ct":"Sets, Relations and Functions",
          "ctg":"jeemain,math,sets-relations-and-functions",
@@ -16,7 +16,7 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":48,
          "ct":"Trigonometry",
          "ctg":"8-trigonometry",
@@ -24,7 +24,7 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":31,
          "ct":"Complex Numbers",
          "ctg":"tnstate,class12,ch3",
@@ -32,7 +32,7 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":92,
          "ct":"Bionomial Theorem and Simple Applications",
          "ctg":"jeemain,math,binomial-theorem-and-simple-applications",
@@ -40,7 +40,7 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":175,
          "ct":"Sequences and Series",
          "ctg":"sequences-and-series",
@@ -48,7 +48,7 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":97,
          "ct":"Coordinate Geometry",
          "ctg":"jeemain,math,coordinate-geometry",
@@ -56,23 +56,23 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":98,
          "ct":"3-D Geometry",
          "ctg":"jeemain,math,3-d-geometry",
          "pcid":226
       }
    },
-   { 
-      "info":{  
+   {
+      "info":{
          "cid":102,
          "ct":"Mathematical Reasoning",
          "ctg":"jeemain,math,mathematical-reasoning",
          "pcid":226
       }
    },
-   { 
-      "info":{  
+   {
+      "info":{
          "cid":54,
          "ct":"Statistics",
          "ctg":"14-statistics",
@@ -80,15 +80,15 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":57,
          "ct":"Inverse Trigonometric Functions",
          "ctg":"cbse,class12,ch2",
          "pcid":14
       }
    },
-   { 
-      "info":{  
+   {
+      "info":{
          "cid":29,
          "ct":"Applications of Matrices and Determinants",
          "ctg":"tnstate,class12,ch1",
@@ -96,31 +96,31 @@
       }
    },
    {
-      "info":{  
+      "info":{
          "cid":35,
          "ct":"Integral Calculus and its applications",
          "ctg":"tnstate,class12,ch7",
          "pcid":24
       }
    },
-   { 
-      "info":{  
+   {
+      "info":{
          "cid":96,
          "ct":"Differential Equations",
          "ctg":"jeemain,math,differential-equations",
          "pcid":227
       }
    },
-   { 
-      "info":{  
+   {
+      "info":{
          "cid":65,
          "ct":"Vector Algebra",
          "ctg":"cbse,class12,ch10",
          "pcid":14
-      } 
+      }
    },
    {
-      "info":{  
+      "info":{
          "cid":68,
          "ct":"Probability",
          "ctg":"cbse,class12,ch13",

@@ -1,28 +1,4 @@
-[ 
-
-{
-  "answers":[  
-               {  
-                  "id":0,
-                  "text":"3"
-               },
-               {  
-                  "id":1,
-                  "text":"6"
-               },
-               {
-                  "id":2,
-                  "text":"9"
-               },
-               {  
-                  "id":3,
-                  "text":"0"
-               }
-    ],
-    "question":"Evaluate the following limits \\[\\] $\\lim\\limits_{x \\to \\pi} \\bigg( x - \\large\\frac{22}{7} \\bigg)$"  
-  },
-
-{
+[{
   "question": "One year on Saturn is equivalent to how many years on Earth?",
   "answers": [{
     "id": 0,

@@ -21,7 +21,7 @@
       <div class="intro {{ (activeQuestion) > -1 ? 'inactive' : 'active'}}">
         <h2>Tutor Onbard Assessment - Subject Test</h2>
         <p>Click to start the test</p>
-        <div class="btn" ng-click="activeQuestion=0">Start quiz</div>
+        <div class="btn" ng-click="startQuiz(selected.length)">Start quiz</div>
       </div>
 
       <div class="progress">
