@@ -25,7 +25,7 @@
       </div>
 
       <div class="progress">
-        <div class="{{ ($index===activeQuestion) ? 'on' : 'off '}}" "{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered'}}" "{{ (myQuestion.correctness === 'correct' ) ? 'correct' : 'incorrect' }}" ng-repeat="myQuestion in myQuestions"></div>
+        <div class="{{ ($index===activeQuestion) ? 'on' : 'off '}}" "{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered'}}" "{{ (myQuestion.correctness === 'correct' ) ? 'correct' : 'incorrect' }}" ng-repeat="myQuestion in simpleJSON"></div>
       </div>
 
       <!-- Maths -->
@@ -115,11 +115,11 @@
 
       <div class="question
 			{{ ($index === activeQuestion) ? 'active' : 'inactive' }}
-			{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}" ng-repeat="myQuestion in myQuestions">
+			{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}" ng-repeat="myQuestion in simpleJSON">
 
         <p class="txt">{{myQuestion.question}}</p>
         <p class="ans" ng-class="{selected :isSelected($parent.$index,$index),
-					 correct:isCorrect($parent.$index,$index)}" ng-click="selectAnswer($parent.$index,$index)" ng-repeat="Answer in myQuestions[$index].answers">{{Answer.text}}</p>
+					 correct:isCorrect($parent.$index,$index)}" ng-click="selectAnswer($parent.$index,$index)" ng-repeat="Answer in simpleJSON[$index].answers">{{Answer.text}}</p>
         <div class="feedback">
           <p ng-show="myQuestion.correctness === 'correct'">You are
             <strong>correct</strong>

@@ -5,6 +5,7 @@
   app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
     $scope.selected = [];
+    $scope.totalQuestions = 3;
 
     //Loading Maths List Items
     $http.get('cat-math.json').then(function(mathData) {
@@ -59,6 +60,7 @@
 
 
     $scope.finalJSON = {};
+    $scope.simpleJSON = [];
 
     $scope.formatJSONToCorrectForm = function(questionList, i) {
 
@@ -74,23 +76,36 @@
       for (var k = 0; k < 3; k++) {
         temp = [];
         optionsArray = [];
+        displayingJSONTemp = {};
 
         optionA = {
           'text': questionList[k].text.opts.optA,
-          'id': 'A'
+          'id': 0
         };
         optionB = {
           'text': questionList[k].text.opts.optB,
-          'id': 'B'
+          'id': 1
         };
         optionC = {
           'text': questionList[k].text.opts.optC,
-          'id': 'C'
+          'id': 2
         };
         optionD = {
           'text': questionList[k].text.opts.optD,
-          'id': 'D'
+          'id': 3
         };
+
+        var answer;
+
+        if (questionList[k].text.opts.answer == 'A') {
+          answer = 0;
+        } else if (questionList[k].text.opts.answer == 'B') {
+          answer = 1;
+        } else if (questionList[k].text.opts.answer == 'C') {
+          answer = 2;
+        } else if (questionList[k].text.opts.answer == 'D') {
+          answer = 3;
+        }
 
 
         optionsArray.push(optionA);
@@ -102,16 +117,28 @@
           'uuid': questionList[k].uuid,
           'question': questionList[k].text.t,
           'answers': optionsArray,
-          'correct': questionList[k].text.opts.answer
+          'correct': answer
         };
 
         first.push(tmp);
         console.log("test" + first[k].answers[0].text);
 
+
+        displayingJSONTemp = {
+          'question': questionList[k].text.t,
+          'answers': optionsArray,
+          'correct': answer
+        };
+        $scope.simpleJSON.push(displayingJSONTemp);
+        console.log("correct answer in global" + questionList[k].text.opts.answer);
+        console.log("correct answer in local" + displayingJSONTemp.correct);
+
       }
 
       var firstField = $scope.selected[i].toString();
       $scope.finalJSON[firstField] = first;
+      // console.log(JSON.stringify($scope.finalJSON));
+
       // console.log("debug " + JSON.stringify(questionList[0].text.t));
       // console.log("random question" + questionList[0].text.t);
     };
@@ -154,29 +181,52 @@
     $scope.activeQuestionAnswered = 0;
     $scope.percentage = 0;
 
-    $http.get('quiz_data.json').then(function(quizData) {
+    // $http.get('quiz_data.json').then(function(quizData) {
+    //
+    //   $scope.myQuestions = quizData.data;
+    //   $scope.totalQuestions = $scope.myQuestions.length;
+    //
+    // });
 
-      $scope.myQuestions = quizData.data;
-      $scope.totalQuestions = $scope.myQuestions.length;
-
-    });
+    // $scope.selectAnswer = function(qIndex, aIndex) {
+    //
+    //   var questionState = $scope.myQuestions[qIndex].questionState;
+    //
+    //   if (questionState != 'answered') {
+    //     $scope.myQuestions[qIndex].selectedAnswer = aIndex;
+    //     var correctAnswer = $scope.myQuestions[qIndex].correct;
+    //     $scope.myQuestions[qIndex].correctAnswer = correctAnswer;
+    //
+    //     if (aIndex === correctAnswer) {
+    //       $scope.myQuestions[qIndex].correctness = 'correct';
+    //       $scope.score += 1;
+    //     } else {
+    //       $scope.myQuestions[qIndex].correctness = 'incorrect';
+    //     }
+    //     $scope.myQuestions[qIndex].questionState = 'answered';
+    //
+    //   }
+    //
+    //   $scope.percentage = (($scope.score / $scope.totalQuestions) * 100).toFixed(2);
+    //
+    // }
 
     $scope.selectAnswer = function(qIndex, aIndex) {
 
-      var questionState = $scope.myQuestions[qIndex].questionState;
+      var questionState = $scope.simpleJSON[qIndex].questionState;
 
       if (questionState != 'answered') {
-        $scope.myQuestions[qIndex].selectedAnswer = aIndex;
-        var correctAnswer = $scope.myQuestions[qIndex].correct;
-        $scope.myQuestions[qIndex].correctAnswer = correctAnswer;
+        $scope.simpleJSON[qIndex].selectedAnswer = aIndex;
+        var correctAnswer = $scope.simpleJSON[qIndex].correct;
+        $scope.simpleJSON[qIndex].correctAnswer = correctAnswer;
 
         if (aIndex === correctAnswer) {
-          $scope.myQuestions[qIndex].correctness = 'correct';
+          $scope.simpleJSON[qIndex].correctness = 'correct';
           $scope.score += 1;
         } else {
-          $scope.myQuestions[qIndex].correctness = 'incorrect';
+          $scope.simpleJSON[qIndex].correctness = 'incorrect';
         }
-        $scope.myQuestions[qIndex].questionState = 'answered';
+        $scope.simpleJSON[qIndex].questionState = 'answered';
 
       }
 
@@ -184,12 +234,13 @@
 
     }
 
+
     $scope.isSelected = function(qIndex, aIndex) {
-      return ($scope.myQuestions[qIndex].selectedAnswer === aIndex);
+      return ($scope.simpleJSON[qIndex].selectedAnswer === aIndex);
     }
 
     $scope.isCorrect = function(qIndex, aIndex) {
-      return ($scope.myQuestions[qIndex].correctAnswer === aIndex);
+      return ($scope.simpleJSON[qIndex].correctAnswer === aIndex);
     }
 
     $scope.selectContinue = function() {
