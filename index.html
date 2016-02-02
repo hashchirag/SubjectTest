@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html ng-app="myQuiz">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Your Knowledge: Saturn</title>
+    <link rel="stylesheet" type="text/css" href="css/quiz.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+  </head>
+  <body>
+
+    <!-- markup goes here -->
+    <div id="myQuiz" ng-controller="QuizController">
+      <div class="intro {{ (activeQuestion) > -1 ? 'inactive' : 'active'}}">
+        <h2>Tutor Onbard Assessment - Subject Test</h2>
+        <p>Click to start the test</p>
+        <div class="btn" ng-click="activeQuestion=0">Start quiz</div>
+      </div>
+
+      <div class="progress">
+        <div class="{{ ($index===activeQuestion) ? 'on' : 'off '}}" "{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered'}}" "{{ (myQuestion.correctness === 'correct' ) ? 'correct' : 'incorrect' }}" ng-repeat="myQuestion in myQuestions"></div>
+      </div>
+
+      <!-- Maths -->
+      <div class="maths  {{ (activeQuestion) > -1 ? 'inactive' : 'active'}}" layout="row" layout-wrap>
+        <div flex="100" flex-gt-sm="100" layout="column">
+          <div></div>
+        </div>
+        <div flex="100" flex-gt-sm="50" layout="column">
+          <div >
+            <fieldset class="standard">
+              <legend>Maths
+              </legend>
+              <div layout="row" layout-wrap flex>
+                <div ng-repeat="mathItem in mathList" class="standard" flex="100">
+                  <label>
+                    <md-checkbox ng-model="data.cb1" ng-checked="exists(mathItem , selected)" ng-click="toggle(mathItem, selected)"/>
+                    {{ mathItem.info.ct}}
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div flex="100">
+          <h2 class="md-title">Selected Items</h2>
+          <code style="display: block; padding: 8px;">{{selected | json}}</code>
+        </div>
+      </div>
+      <!-- End of Maths -->
+
+      <!-- //Physics -->
+      <div class="physics  {{ (activeQuestion) > -1 ? 'inactive' : 'active'}}" layout="row" layout-wrap>
+        <div flex="100" flex-gt-sm="100" layout="column">
+          <div></div>
+        </div>
+        <div flex="100" flex-gt-sm="50" layout="column">
+          <div >
+            <fieldset class="standard">
+              <legend>Physics
+              </legend>
+              <div layout="row" layout-wrap flex>
+                <div ng-repeat="physicsItem in physicsList" class="standard" flex="100">
+                  <label>
+                    <md-checkbox ng-model="data.cb1" ng-checked="exists(physicsItem , selected)" ng-click="toggle(physicsItem, selected)"/>
+                    {{ physicsItem.info.ct}}
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div flex="100">
+          <h2 class="md-title">Selected Items</h2>
+          <code style="display: block; padding: 8px;">{{selected | json}}</code>
+        </div>
+      </div>
+      <!-- End of Physics -->
+
+      <!-- Chemistry -->
+
+      <div class="chem {{ (activeQuestion) > -1 ? 'inactive' : 'active'}}" layout="row" layout-wrap>
+        <div flex="100" flex-gt-sm="100" layout="column">
+          <div></div>
+        </div>
+        <div flex="100" flex-gt-sm="50" layout="column">
+          <div >
+            <fieldset class="standard">
+              <legend>Chemistry
+              </legend>
+              <div layout="row" layout-wrap flex>
+                <div ng-repeat="chemItem in chemList" class="standard" flex="100">
+                  <label>
+                    <md-checkbox ng-model="data.cb1" ng-checked="exists(chemItem , selected)" ng-click="toggle(chemItem, selected)"/>
+                    {{ chemItem.info.ct}}
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div flex="100">
+          <h2 class="md-title">Selected Items</h2>
+          <code style="display: block; padding: 8px;">{{selected | json}}</code>
+        </div>
+      </div>
+      <!-- End of Chemistry -->
+
+      <div class="question
+			{{ ($index === activeQuestion) ? 'active' : 'inactive' }}
+			{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}" ng-repeat="myQuestion in myQuestions">
+
+        <p class="txt">{{myQuestion.question}}</p>
+        <p class="ans" ng-class="{selected :isSelected($parent.$index,$index),
+					 correct:isCorrect($parent.$index,$index)}" ng-click="selectAnswer($parent.$index,$index)" ng-repeat="Answer in myQuestions[$index].answers">{{Answer.text}}</p>
+        <div class="feedback">
+          <p ng-show="myQuestion.correctness === 'correct'">You are
+            <strong>correct</strong>
+          </p>
+          <p ng-show="myQuestion.correctness === 'incorrect'">That is not the right answer</p>
+          <div class="btn" ng-click="selectContinue()">Continue</div>
+        </div>
+      </div>
+
+      <div class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
+        <p>
+          You scored
+          {{percentage}}% by answering
+          {{score}}
+          of the
+          {{totalQuestions}}
+          questions
+        </p>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="js/quiz.js"></script>
+
+  </body>
+</html>
