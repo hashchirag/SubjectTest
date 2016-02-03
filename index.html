@@ -9,7 +9,12 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-
+    <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
@@ -117,9 +122,9 @@
 			{{ ($index === activeQuestion) ? 'active' : 'inactive' }}
 			{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}" ng-repeat="myQuestion in simpleJSON">
 
-        <p class="txt">{{myQuestion.question}}</p>
+        <p class="txt"><span math-jax-bind ="myQuestion.question"</p>
         <p class="ans" ng-class="{selected :isSelected($parent.$index,$index),
-					 correct:isCorrect($parent.$index,$index)}" ng-click="selectAnswer($parent.$index,$index)" ng-repeat="Answer in simpleJSON[$index].answers">{{Answer.text}}</p>
+					 correct:isCorrect($parent.$index,$index)}" ng-click="selectAnswer($parent.$index,$index)" ng-repeat="Answer in simpleJSON[$index].answers"><span math-jax-bind ="Answer.text"</p>
         <div class="feedback">
           <p ng-show="myQuestion.correctness === 'correct'">You are
             <strong>correct</strong>
