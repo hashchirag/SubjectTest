@@ -68,7 +68,7 @@ body {
   left: -1000px;
 }
 #myQuiz .progress {
-  width: 550px;
+  width: 1200px;
   position: absolute;
   top: 60px;
   left: 40px;
@@ -104,13 +104,14 @@ body {
   opacity: 1;
 }
 #myQuiz .question .txt {
+  width: 600px;
   font-size: 1.2em;
   margin: 0px, 0px, 20px, 0px;
 }
 #myQuiz .question .ans {
   font-size: 0.8em;
   display: inline-block;
-  width: 225px;
+  width: 300px;
   border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   padding: 10px;
@@ -149,6 +150,10 @@ body {
   cursor: default;
 }
 #myQuiz .feedback {
+  position: absolute;
+  left : 600px;
+  top: 150px;
+  width :150px;
   margin-top: 10px;
   transition: opacity 0.5s, margin-top 1.5s;
   visibility: hidden;

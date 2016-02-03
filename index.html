@@ -54,10 +54,10 @@
             </fieldset>
           </div>
         </div>
-        <div flex="100">
+        <!-- <div flex="100">
           <h2 class="md-title">Selected Items</h2>
           <code style="display: block; padding: 8px;">{{selected | json}}</code>
-        </div>
+        </div> -->
       </div>
       <!-- End of Maths -->
 
@@ -82,10 +82,10 @@
             </fieldset>
           </div>
         </div>
-        <div flex="100">
+        <!-- <div flex="100">
           <h2 class="md-title">Selected Items</h2>
           <code style="display: block; padding: 8px;">{{selected | json}}</code>
-        </div>
+        </div> -->
       </div>
       <!-- End of Physics -->
 
@@ -111,10 +111,10 @@
             </fieldset>
           </div>
         </div>
-        <div flex="100">
+        <!-- <div flex="100">
           <h2 class="md-title">Selected Items</h2>
           <code style="display: block; padding: 8px;">{{selected | json}}</code>
-        </div>
+        </div> -->
       </div>
       <!-- End of Chemistry -->
 
@@ -129,7 +129,7 @@
           <p ng-show="myQuestion.correctness === 'correct'">You are
             <strong>correct</strong>
           </p>
-          <p ng-show="myQuestion.correctness === 'incorrect'">That is not the right answer</p>
+          <p ng-show="myQuestion.correctness === 'incorrect'">Oops! That's not the right answer</p>
           <div class="btn" ng-click="selectContinue()">Continue</div>
         </div>
       </div>
@@ -141,7 +141,13 @@
           {{score}}
           of the
           {{totalQuestions}}
-          questions
+          questions.<br/>
+          {{ finalArray[  finalArrayIndex.indexOf(selected[0]) ] }} - {{ answersArray[0]  + answersArray[1] + answersArray[2] }}/3<br />
+          {{ finalArray[  finalArrayIndex.indexOf(selected[1]) ] }} - {{ answersArray[3]  + answersArray[4] + answersArray[5] }}/3<br />
+          {{ finalArray[  finalArrayIndex.indexOf(selected[2]) ] }} - {{ answersArray[6]  + answersArray[7] + answersArray[8] }}/3<br />
+          {{ finalArray[  finalArrayIndex.indexOf(selected[3]) ] }} - {{ answersArray[9]  + answersArray[10] + answersArray[11] }}/3<br />
+          {{ finalArray[  finalArrayIndex.indexOf(selected[4]) ] }} - {{ answersArray[12]  + answersArray[13] + answersArray[14] }}/3<br />
+
         </p>
       </div>
 

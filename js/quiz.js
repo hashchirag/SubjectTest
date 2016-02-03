@@ -17,9 +17,229 @@
 
   app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
+    $scope.finalScore = [0, 0, 0, 0, 0];
+    //
+    // $scope.mathArray = [94, 88, 31, 92, 175, 98, 57, 29, 35, 96, 65];
+    // $scope.mathArrayIndex = ["Limit, Continuity and Differentiability", "Sets, Relations and Functions", "Complex Numbers",
+    //   "Bionomial Theorem and Simple Applications",
+    //   "Sequences and Series",
+    //   "3-D Geometry",
+    //   "Inverse Trigonometric Functions",
+    //   "Applications of Matrices and Determinants",
+    //   "Integral Calculus and its applications",
+    //   "Differential Equations",
+    //   "Vector Algebra"
+    // ];
+    //
+    // $scope.physicsArray = [
+    //   103, 261, 262, 106, 107, 108,
+    //   263,
+    //   110,
+    //   112,
+    //   266,
+    //   114,
+    //   251,
+    //   252,
+    //   253,
+    //   254,
+    //   117,
+    //   255,
+    //   256,
+    //   119,
+    //   257,
+    //   160,
+    // ];
+    //
+    //
+    // $scope.physicsArrayIndex = ["Units and Measurement",
+    //   "Motion in a Straight Line",
+    //   "Motion in a Plane",
+    //   "Work, Power and Energy",
+    //   "System of Particles and Rotational Motion",
+    //   "Gravitation",
+    //   "Mechanical Properties of Solids",
+    //   "Thermodynamics",
+    //   "Oscillations",
+    //   "Waves",
+    //   "Current Electricity",
+    //   "Moving Charges and Magentism",
+    //   "Magnetism and Matter",
+    //   "Electromagnetic Induction",
+    //   "Alternating Current",
+    //   "Electromagnetic Waves",
+    //   "Ray Optics and Optical Instruments",
+    //   "Wave Optics",
+    //   "Dual Nature of Matter and Radiation",
+    //   "Atoms",
+    //   "Semiconductor Materials and Electronic Devices"
+    // ];
+    //
+    // $scope.chemArray = [122,
+    //   124,
+    //   132,
+    //   126,
+    //   128,
+    //   272,
+    //   134,
+    //   135,
+    //   136,
+    //   142,
+    //   141,
+    //   139,
+    //   123,
+    //   267,
+    //   127,
+    //   269,
+    //   131,
+    //   133,
+    //   268,
+    //   138,
+    //   143,
+    //   144,
+    //   145,
+    //   146,
+    //   147,
+    //   149,
+    //   130,
+    //   270
+    // ];
+    // $scope.chemArrayIndex = ["Some Basic concepts in Chemistry",
+    //   "Atomic Structure",
+    //   "Classification of Elements and Periodicity in Properties",
+    //   "Chemical Thermodynamics",
+    //   "Equilibrium",
+    //   "Redox Reactions",
+    //   "Hydrogen",
+    //   "s-Block Elements",
+    //   "p-Block Elements",
+    //   "Hydrocarbons",
+    //   "Some Basic principles of Organic chemistry",
+    //   "Environmental Chemistry",
+    //   "States of Matter: Liquids and Gases",
+    //   "States of Matter: Solid State",
+    //   "Solutions",
+    //   "Electrochemistry",
+    //   "Surface Chemistry",
+    //   "General Principals and Processes of Isolation of Metals",
+    //   "p-Block elements (Group-15 to Group-18)",
+    //   "Co-ordination Compounds",
+    //   "Halogens",
+    //   "Oxygen: Alchohols, Phenols and Ethers",
+    //   "Nitrogen",
+    //   "Polymers",
+    //   "Biomolecules",
+    //   "Practical Chemistry",
+    //   "Chemical Kinetics",
+    //   "Oxygen: Aldehydes, Ketones and Carboxylic Acids",
+    // ];
+
+$scope.finalArrayIndex =[94, 88, 31, 92, 175, 98, 57, 29, 35, 96, 65,
+103, 261, 262, 106, 107, 108,
+  263,
+  110,
+  112,
+  266,
+  114,
+  251,
+  252,
+  253,
+  254,
+  117,
+  255,
+  256,
+  119,
+  257,
+  160,
+  122,
+  124,
+  132,
+  126,
+  128,
+  272,
+  134,
+  135,
+  136,
+  142,
+  141,
+  139,
+  123,
+  267,
+  127,
+  269,
+  131,
+  133,
+  268,
+  138,
+  143,
+  144,
+  145,
+  146,
+  147,
+  149,
+  130,
+  270]
+
+$scope.finalArray = ["Limit, Continuity and Differentiability", "Sets, Relations and Functions", "Complex Numbers",
+  "Bionomial Theorem and Simple Applications",
+  "Sequences and Series",
+  "3-D Geometry",
+  "Inverse Trigonometric Functions",
+  "Applications of Matrices and Determinants",
+  "Integral Calculus and its applications",
+  "Differential Equations",
+  "Vector Algebra","Units and Measurement",
+    "Motion in a Straight Line",
+    "Motion in a Plane",
+    "Work, Power and Energy",
+    "System of Particles and Rotational Motion",
+    "Gravitation",
+    "Mechanical Properties of Solids",
+    "Thermodynamics",
+    "Oscillations",
+    "Waves",
+    "Current Electricity",
+    "Moving Charges and Magentism",
+    "Magnetism and Matter",
+    "Electromagnetic Induction",
+    "Alternating Current",
+    "Electromagnetic Waves",
+    "Ray Optics and Optical Instruments",
+    "Wave Optics",
+    "Dual Nature of Matter and Radiation",
+    "Atoms",
+    "Semiconductor Materials and Electronic Devices","Some Basic concepts in Chemistry",
+      "Atomic Structure",
+      "Classification of Elements and Periodicity in Properties",
+      "Chemical Thermodynamics",
+      "Equilibrium",
+      "Redox Reactions",
+      "Hydrogen",
+      "s-Block Elements",
+      "p-Block Elements",
+      "Hydrocarbons",
+      "Some Basic principles of Organic chemistry",
+      "Environmental Chemistry",
+      "States of Matter: Liquids and Gases",
+      "States of Matter: Solid State",
+      "Solutions",
+      "Electrochemistry",
+      "Surface Chemistry",
+      "General Principals and Processes of Isolation of Metals",
+      "p-Block elements (Group-15 to Group-18)",
+      "Co-ordination Compounds",
+      "Halogens",
+      "Oxygen: Alchohols, Phenols and Ethers",
+      "Nitrogen",
+      "Polymers",
+      "Biomolecules",
+      "Practical Chemistry",
+      "Chemical Kinetics",
+      "Oxygen: Aldehydes, Ketones and Carboxylic Acids"];
+
+
     $scope.selected = [];
     $scope.answersArray = [];
-    $scope.totalQuestions = 3;
+    $scope.totalQuestions = 15;
     $scope.ended = true;
 
     $scope.drawCanvas = (function drawCanvas() {
@@ -28,7 +248,7 @@
       var cWidth = canvas.width;
       var cHeight = canvas.height;
 
-      $scope.countTo = 10;
+      $scope.countTo = 5;
       $scope.counToTime = 10;
 
       var min = Math.floor($scope.countTo / 60);
@@ -226,6 +446,10 @@
     $scope.finalJSON = {};
     $scope.simpleJSON = [];
 
+    $scope.randomfn = function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max-1 - min + 1)) + min;
+    }
+
     $scope.formatJSONToCorrectForm = function(questionList, i) {
 
       var first = $scope.selected[i].toString();
@@ -237,32 +461,34 @@
         optionsArray = [];
         displayingJSONTemp = {};
 
+        var randomNumber = $scope.randomfn(0, questionList.length);
+
         optionA = {
-          'text': questionList[k].text.opts.optA,
+          'text': questionList[randomNumber].text.opts.optA,
           'id': 0
         };
         optionB = {
-          'text': questionList[k].text.opts.optB,
+          'text': questionList[randomNumber].text.opts.optB,
           'id': 1
         };
         optionC = {
-          'text': questionList[k].text.opts.optC,
+          'text': questionList[randomNumber].text.opts.optC,
           'id': 2
         };
         optionD = {
-          'text': questionList[k].text.opts.optD,
+          'text': questionList[randomNumber].text.opts.optD,
           'id': 3
         };
 
         var answer;
 
-        if (questionList[k].text.opts.answer == 'A') {
+        if (questionList[randomNumber].text.opts.answer == 'A') {
           answer = 0;
-        } else if (questionList[k].text.opts.answer == 'B') {
+        } else if (questionList[randomNumber].text.opts.answer == 'B') {
           answer = 1;
-        } else if (questionList[k].text.opts.answer == 'C') {
+        } else if (questionList[randomNumber].text.opts.answer == 'C') {
           answer = 2;
-        } else if (questionList[k].text.opts.answer == 'D') {
+        } else if (questionList[randomNumber].text.opts.answer == 'D') {
           answer = 3;
         }
 
@@ -273,8 +499,8 @@
         optionsArray.push(optionD);
 
         tmp = {
-          'uuid': questionList[k].uuid,
-          'question': questionList[k].text.t,
+          'uuid': questionList[randomNumber].uuid,
+          'question': questionList[randomNumber].text.t,
           'answers': optionsArray,
           'correct': answer
         };
@@ -284,7 +510,7 @@
 
 
         displayingJSONTemp = {
-          'question': questionList[k].text.t,
+          'question': questionList[randomNumber].text.t,
           'answers': optionsArray,
           'correct': answer
         };
@@ -298,7 +524,7 @@
       $scope.finalJSON[firstField] = first;
       // console.log(JSON.stringify($scope.finalJSON));
 
-      console.log("debug " + JSON.stringify($scope.finalJSON));
+      // console.log("debug " + JSON.stringify($scope.finalJSON));
       // console.log("random question" + questionList[0].text.t);
     };
 
@@ -312,7 +538,7 @@
 
         $scope.questionList = questionData.data.data;
         $scope.questionListLength = $scope.questionList.length;
-        alert("" + $scope.questionList);
+        // alert("" + $scope.questionList);
         $scope.formatJSONToCorrectForm($scope.questionList, i);
 
       });
@@ -320,20 +546,17 @@
     }
 
     $scope.startQuiz = function(selLength) {
-      // if (selLength <= 0 || selLength < 5)
-      //   alert("Please choose only 5 topics.");
-      // else {
-      $scope.activeQuestion = 0;
-      $scope.drawCanvas();
-      for (var i = 0; i < selLength; i++) {
-        console.log($scope.selected[i]);
-        $scope.loadAndPopulate($scope.selected[i], i);
-        // }
+      if (selLength == 5) {
+        $scope.activeQuestion = 0;
+        $scope.drawCanvas();
+        for (var i = 0; i < selLength; i++) {
+          console.log($scope.selected[i]);
+          $scope.loadAndPopulate($scope.selected[i], i);
+        }
+      } else {
+        alert("Please choose only 5 topics.");
       }
     }
-
-
-
 
     //Question Related stuff
     $scope.score = 0;
@@ -352,13 +575,16 @@
 
         if (aIndex === correctAnswer) {
           $scope.simpleJSON[qIndex].correctness = 'correct';
-          $scope.answersArray[qIndex] = "correct";
+          $scope.answersArray[qIndex] = 1;
+          $scope.finalScore[qIndex / 3]++;
+          // alert($scope.finalScore[qIndex / 3]);
+          console.log(qIndex);
           // $scope.finalJSON[$scope.selected[qIndex / 3]].success = 'true';
           // console.log(JSON.stringify($scope.finalJSON));
           $scope.score += 1;
         } else {
           $scope.simpleJSON[qIndex].correctness = 'incorrect';
-          $scope.answersArray[qIndex] = "incorrect";
+          $scope.answersArray[qIndex] = 0;
         }
         $scope.simpleJSON[qIndex].questionState = 'answered';
 
