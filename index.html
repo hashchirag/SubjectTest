@@ -20,10 +20,10 @@
     <div id="myQuiz" ng-controller="QuizController">
       <div class="intro {{ (activeQuestion) > -1 ? 'inactive' : 'active'}}">
         <h2>Tutor Onbard Assessment - Subject Test</h2>
-        <p>Click to start the test</p>
+        <h3>Choose any 5 topics and click on the button below to start the test</h3>
         <div class="btn" ng-click="startQuiz(selected.length)">Start quiz</div>
       </div>
-
+      <canvas id="mycanvas" width="250" height="250"></canvas>
       <div class="progress">
         <div class="{{ ($index===activeQuestion) ? 'on' : 'off '}}" "{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered'}}" "{{ (myQuestion.correctness === 'correct' ) ? 'correct' : 'incorrect' }}" ng-repeat="myQuestion in simpleJSON"></div>
       </div>

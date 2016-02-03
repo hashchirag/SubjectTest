@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:900|Roboto:400,100);
+@import "//fonts.googleapis.com/css?family=Bangers";
 body {
   background-color: #fff;
   padding: 20px;
@@ -7,10 +8,10 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: #000000;
-  width: 1300px;
-  height:1500px;
-  background: #000 url(../images/wallpaper.jpg) no-repeat 0px 0px;
+  color: #ffffff;
+  width: 1700px;
+  height:1600px;
+  background: #000 url(../images/bg.jpg) no-repeat 0px 0px;
 }
 
 #myQuiz .topicSelector{
@@ -110,7 +111,7 @@ body {
   font-size: 1.1em;
   display: inline-block;
   width: 225px;
-  border: 2px solid rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 6px;
   padding: 10px;
   margin: 0px, 15px, 15px, 0px;
@@ -207,6 +208,9 @@ body {
   clear: both; }
 .checkboxdemoSyncing .checkboxDemo1 md-checkbox {
   cursor: pointer;
+  border-color: #000000;
+  border-width: 1px;
+  color: #000000;
 }
 .checkboxdemoSyncing legend {
   color: #3F51B5; }
@@ -224,5 +228,11 @@ body {
   border-style: solid;
   border-width: 1px;
   height: 100%; }
+
+  canvas {
+    position: absolute;
+    left: 860px;
+    top : 150px;
+  }
 
 }
