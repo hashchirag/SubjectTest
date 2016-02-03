@@ -3,7 +3,7 @@
   var app = angular.module('myQuiz', ['ngMaterial']);
   app.directive('mathJaxBind', function() {
     var refresh = function(element) {
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
     };
     return {
       link: function(scope, element, attrs) {
@@ -18,6 +18,7 @@
   app.controller('QuizController', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
 
     $scope.selected = [];
+    $scope.answersArray = [];
     $scope.totalQuestions = 3;
     $scope.ended = true;
 
@@ -170,11 +171,6 @@
 
     });
 
-
-    $scope.loadAndPopulate = function() {
-
-    }
-
     //Loading Maths List Items
     $http.get('cat-math.json').then(function(mathData) {
 
@@ -302,7 +298,7 @@
       $scope.finalJSON[firstField] = first;
       // console.log(JSON.stringify($scope.finalJSON));
 
-      // console.log("debug " + JSON.stringify(questionList[0].text.t));
+      console.log("debug " + JSON.stringify($scope.finalJSON));
       // console.log("random question" + questionList[0].text.t);
     };
 
@@ -345,51 +341,6 @@
     $scope.activeQuestionAnswered = 0;
     $scope.percentage = 0;
 
-    // $http.get('quiz_data.json').then(function(quizData) {
-    //
-    //   $scope.myQuestions = quizData.data;
-    //   $scope.totalQuestions = $scope.myQuestions.length;
-    //
-    // });
-
-    // $scope.selectAnswer = function(qIndex, aIndex) {
-    //
-    //   var questionState = $scope.myQuestions[qIndex].questionState;
-    //
-    //   if (questionState != 'answered') {
-    //     $scope.myQuestions[qIndex].selectedAnswer = aIndex;
-    //     var correctAnswer = $scope.myQuestions[qIndex].correct;
-    //     $scope.myQuestions[qIndex].correctAnswer = correctAnswer;
-    //
-    //     if (aIndex === correctAnswer) {
-    //       $scope.myQuestions[qIndex].correctness = 'correct';
-    //       $scope.score += 1;
-    //     } else {
-    //       $scope.myQuestions[qIndex].correctness = 'incorrect';
-    //     }
-    //     $scope.myQuestions[qIndex].questionState = 'answered';
-    //
-    //   }
-    //
-    //   $scope.percentage = (($scope.score / $scope.totalQuestions) * 100).toFixed(2);
-    //
-    // }
-
-
-    $scope.xyz = function() {
-
-      if($scope.counter >= $scope.counToTime ){
-        return 'active';
-        alert("sdfd");
-      }
-
-      if (($scope.totalQuestions === $scope.activeQuestion))
-        return 'active';
-      else {
-        return 'inactive';
-      }
-    }
-
     $scope.selectAnswer = function(qIndex, aIndex) {
 
       var questionState = $scope.simpleJSON[qIndex].questionState;
@@ -401,9 +352,13 @@
 
         if (aIndex === correctAnswer) {
           $scope.simpleJSON[qIndex].correctness = 'correct';
+          $scope.answersArray[qIndex] = "correct";
+          // $scope.finalJSON[$scope.selected[qIndex / 3]].success = 'true';
+          // console.log(JSON.stringify($scope.finalJSON));
           $scope.score += 1;
         } else {
           $scope.simpleJSON[qIndex].correctness = 'incorrect';
+          $scope.answersArray[qIndex] = "incorrect";
         }
         $scope.simpleJSON[qIndex].questionState = 'answered';
 
@@ -412,13 +367,6 @@
       $scope.percentage = (($scope.score / $scope.totalQuestions) * 100).toFixed(2);
 
     }
-
-    // $scope.displayResults = function() {
-    //   if ($scope.counter >=0 && $scope.counter <= $scope.countTo)
-    //     return true;
-    //   else
-    //     return false;
-    // }
 
     $scope.isSelected = function(qIndex, aIndex) {
       return ($scope.simpleJSON[qIndex].selectedAnswer === aIndex);

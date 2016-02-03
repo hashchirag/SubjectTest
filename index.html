@@ -124,7 +124,7 @@
 
         <p class="txt"><span math-jax-bind ="myQuestion.question"</p>
         <p class="ans" ng-class="{selected :isSelected($parent.$index,$index),
-					 correct:isCorrect($parent.$index,$index)}" ng-click="selectAnswer($parent.$index,$index)" ng-repeat="Answer in simpleJSON[$index].answers"><span math-jax-bind ="Answer.text"</p>
+					 correct:isCorrect($parent.$index,$index)}" ng-click="selectAnswer($parent.$index,$index)" ng-repeat="Answer in simpleJSON[$index].answers"><span math-jax-bind ="Answer.text"></p>
         <div class="feedback">
           <p ng-show="myQuestion.correctness === 'correct'">You are
             <strong>correct</strong>
