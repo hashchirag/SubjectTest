@@ -17,14 +17,6 @@
    },
    {
       "info":{
-         "cid":48,
-         "ct":"Trigonometry",
-         "ctg":"8-trigonometry",
-         "pcid":2
-      }
-   },
-   {
-      "info":{
          "cid":31,
          "ct":"Complex Numbers",
          "ctg":"tnstate,class12,ch3",
@@ -47,14 +39,7 @@
          "pcid":166
       }
    },
-   {
-      "info":{
-         "cid":97,
-         "ct":"Coordinate Geometry",
-         "ctg":"jeemain,math,coordinate-geometry",
-         "pcid":226
-      }
-   },
+
    {
       "info":{
          "cid":98,
@@ -63,22 +48,7 @@
          "pcid":226
       }
    },
-   {
-      "info":{
-         "cid":102,
-         "ct":"Mathematical Reasoning",
-         "ctg":"jeemain,math,mathematical-reasoning",
-         "pcid":226
-      }
-   },
-   {
-      "info":{
-         "cid":54,
-         "ct":"Statistics",
-         "ctg":"14-statistics",
-         "pcid":2
-      }
-   },
+
    {
       "info":{
          "cid":57,
@@ -116,14 +86,6 @@
          "cid":65,
          "ct":"Vector Algebra",
          "ctg":"cbse,class12,ch10",
-         "pcid":14
-      }
-   },
-   {
-      "info":{
-         "cid":68,
-         "ct":"Probability",
-         "ctg":"cbse,class12,ch13",
          "pcid":14
       }
    }

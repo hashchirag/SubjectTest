@@ -104,11 +104,11 @@ body {
   opacity: 1;
 }
 #myQuiz .question .txt {
-  font-size: 1.6em;
+  font-size: 1.2em;
   margin: 0px, 0px, 20px, 0px;
 }
 #myQuiz .question .ans {
-  font-size: 1.1em;
+  font-size: 0.8em;
   display: inline-block;
   width: 225px;
   border: 2px solid rgba(255, 255, 255, 0.4);

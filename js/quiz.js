@@ -151,6 +151,9 @@
         if ($scope.counter >= $scope.countTo) {
           sec = 0;
           min = 0;
+          $scope.activeQuestion = $scope.totalQuestions;
+
+          // alert(""+   $scope.activeQuestion+ ""+ $scope.totalQuestions);
         } else {
           angle += inc;
           $scope.counter++;
@@ -230,11 +233,6 @@
     $scope.formatJSONToCorrectForm = function(questionList, i) {
 
       var first = $scope.selected[i].toString();
-      // var second = $scope.selected[1].toString();
-      // var third = $scope.selected[2].toString();
-      // var fourth = $scope.selected[3].toString();
-      // var fifth = $scope.selected[4].toString();
-      console.log("first " + first);
 
       first = [];
 
@@ -286,7 +284,7 @@
         };
 
         first.push(tmp);
-        console.log("test" + first[k].answers[0].text);
+        // console.log("test" + first[k].answers[0].text);
 
 
         displayingJSONTemp = {
@@ -295,8 +293,8 @@
           'correct': answer
         };
         $scope.simpleJSON.push(displayingJSONTemp);
-        console.log("correct answer in global" + questionList[k].text.opts.answer);
-        console.log("correct answer in local" + displayingJSONTemp.correct);
+        // console.log("correct answer in global" + questionList[k].text.opts.answer);
+        // console.log("correct answer in local" + displayingJSONTemp.correct);
 
       }
 

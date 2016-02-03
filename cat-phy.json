@@ -1,14 +1,6 @@
 [
 {
    "info":{  
-      "cid":260,
-      "ct":"Physical World",
-      "ctg":"physical-world",
-      "pcid":230
-   }
-},
-{
-   "info":{  
       "cid":103,
       "ct":"Units and Measurement",
       "ctg":"jeemain,physics,physics-and-measurement",
@@ -28,14 +20,6 @@
       "cid":262,
       "ct":"Motion in a Plane",
       "ctg":"motion-in-a-plane",
-      "pcid":230
-   }
-},
-{
-   "info":{  
-      "cid":105,
-      "ct":"Laws of Motion",
-      "ctg":"jeemain,physics,class11,ch5,laws-of-motion,",
       "pcid":230
    }
 },
@@ -71,22 +55,7 @@
       "pcid":230
    }
 },
-{
-   "info":{  
-      "cid":264,
-      "ct":"Mechanical Properties of Fluids",
-      "ctg":"mechanical-properties-of-fluids",
-      "pcid":230
-   }
-},
-{
-   "info":{  
-      "cid":265,
-      "ct":"Thermal Properties of Matter",
-      "ctg":"thermal-properties-of-matter",
-      "pcid":230
-   }
-},
+
 {
    "info":{  
       "cid":110,
@@ -95,14 +64,7 @@
       "pcid":230
    }
 },
-{
-   "info":{  
-      "cid":111,
-      "ct":"Kinetic Theory of Gases",
-      "ctg":"jeemain,physics,kinetic-theory-of-gases",
-      "pcid":230
-   }
-},
+
 {
    "info":{  
       "cid":112,
@@ -199,14 +161,7 @@
       "pcid":231
    }
 },
-{
-   "info":{  
-      "cid":258,
-      "ct":"Nucleii",
-      "ctg":"nucleii",
-      "pcid":231
-   }
-},
+
 {
    "info":{  
       "cid":160,
@@ -214,13 +169,6 @@
       "ctg":"electronic-devices",
       "pcid":231
    } 
-},
-{ 
-   "info":{  
-      "cid":120,
-      "ct":"Communication Systems",
-      "ctg":"jeemain,physics,communication-systems",
-      "pcid":231
-   }
 }
+
 ]
