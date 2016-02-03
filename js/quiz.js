@@ -249,7 +249,7 @@ $scope.finalArray = ["Limit, Continuity and Differentiability", "Sets, Relations
       var cHeight = canvas.height;
 
       $scope.countTo = 5;
-      $scope.counToTime = 10;
+      $scope.counToTime = 2700;
 
       var min = Math.floor($scope.countTo / 60);
       var sec = $scope.countTo - (min * 60);
